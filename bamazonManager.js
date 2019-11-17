@@ -1,6 +1,6 @@
 var mysql = require("mysql");
+var inquirer = ("inquirer");
 var inquirer = require("inquirer");
-var Table = require("cli-table2");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -109,7 +109,7 @@ function AddNewProduct() {
           var department = answer.dep;
           var price = answer.price;
           var stock = answer.stock
-          connection.query(`INSERT INTO products(product_name, department_name, price, stock_quqntity) VALUES(?, ?, ?, ?)`, [product, department, price, stock], function (err, response) {
+          connection.query(`INSERT INTO products(products_name, department_id, price, stock_quqntity) VALUES(?, ?, ?, ?)`, [product, department, price, stock], function (err, response) {
               if (err) throw err;
               console.log("Product Added to Shop!");
               connection.end();

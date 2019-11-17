@@ -1,6 +1,5 @@
 var mysql = require("mysql");
 var inquirer = ("inquirer");
-var table = require("cli-table2");
 var inquirer = require("inquirer");
 
 var connection = mysql.createConnection({
@@ -15,19 +14,12 @@ var connection = mysql.createConnection({
 // var display = function() {
 //     connection.query("SELECT * FROM products",function(err,res){
 //         if (err) throw err;
-//         console.log("-----------------")
+//         console.log("")
 //         console.log(" Welcome to Bamazon ")
-//         console.log("--------------------")
 //         console.log("")
 //         console.log("Find your Product Below")
 //         console.log("")
 //     });
-//     var table = new Table({
-//         head: ['Product Id', 'Product Description', 'Cost'],
-//        colWidths: [10, 70, 30],
-//       }
-//     }); 
-// };
 
 connection.connect(function (err) {
     if (err) throw err;
@@ -47,8 +39,7 @@ function promptProduct() {
     inquirer.prompt([{
         name: "productID",
         type: "input",
-        message: "Welcome to Bamazon!",
-        message: "Please choose a product ID you want to purchase?"
+        message: "\n##### Welcome to Bamazon ####\n Please choose a product ID you want to purchase?"
     },
 
     {
